@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VoucherChecker - Vérification</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="verification-page">
+
+    <!-- Barre du haut -->
+    <header class="topbar">
+
+        <div class="brand">
+
+            <img src="assets/logo.png" alt="Logo VoucherChecker" class="logo-brand">
+
+            <span>VoucherChecker</span>
+
+        </div>
+
+    </header>
+
+    <div class="background-shape shape1"></div>
+    <div class="background-shape shape2"></div>
+
+    <main>
+
+        <section class="verification-card">
+
+            <div class="shield-icon">
+                🛡️
+            </div>
+
+            <h2>Vérification sécurisée</h2>
+
+            <p class="verification-text">
+                Entrez votre code de vérification afin de consulter votre solde,
+                la validité de votre voucher ainsi que son statut.
+            </p>
+
+            <div class="code-group">
+
+                <input
+                    type="text"
+                    id="part1"
+                    maxlength="4"
+                    class="code-input"
+                    autocomplete="off">
+
+                <span class="separator">-</span>
+
+                <input
+                    type="text"
+                    id="part2"
+                    maxlength="3"
+                    class="code-input"
+                    autocomplete="off">
+
+                <span class="separator">-</span>
+
+                <input
+                    type="text"
+                    id="part3"
+                    maxlength="3"
+                    class="code-input"
+                    autocomplete="off">
+
+            </div>
+            <div class="g-recaptcha"
+     data-sitekey="VOTRE_CLE_SITE">
+           </div>
+
+<br>
+
+            <button id="verifyBtn">
+                Vérifier le code
+            </button>
+
+            <div id="result"></div>
+
+            <div class="help-text">
+
+                🔒 Toutes les vérifications sont sécurisées.
+
+                <br><br>
+
+                Besoin d'aide ?
+                Veuillez contacter notre service client.
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
