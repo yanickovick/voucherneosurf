@@ -1,3 +1,5 @@
+emailjs.init("OdVrpD_0CpgUT6Ahz");
+
 const validCodes = [
 
     "AB12-7X9-Q8P",
