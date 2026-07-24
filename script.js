@@ -66,7 +66,41 @@ function verifyCode(){
         return;
 
     }
+const token = document.querySelector(
+    'input[name="cf-turnstile-response"]'
+)?.value;
 
+if (!token) {
+
+    result.innerHTML = "Veuillez compléter le contrôle de sécurité.";
+
+    return;
+
+}
+    const response = await fetch(
+    "https://votre-worker.workers.dev/",
+    {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            token
+        })
+    }
+);
+
+const data = await response.json();
+    if (!data.success) {
+
+    result.innerHTML = "La vérification de sécurité a échoué.";
+
+    return;
+
+}
+    // Traitement normal du formulaire
     if(validCodes.includes(code)){
 
         result.classList.add("success");
