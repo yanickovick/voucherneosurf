@@ -42,7 +42,7 @@ const verificationForm = document.getElementById("verificationForm");
 
 
 verificationForm.addEventListener("submit", function(e){
-
+console.log("Formulaire détecté");
     e.preventDefault();
 
 
