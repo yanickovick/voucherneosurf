@@ -79,9 +79,3 @@ function verifyCode(){
 
     }
 
-}const response = grecaptcha.getResponse();
-
-if (response.length === 0) {
-    alert("Veuillez confirmer que vous n'êtes pas un robot.");
-    return;
-}
