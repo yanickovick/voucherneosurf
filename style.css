@@ -651,14 +651,14 @@ footer{
 
     margin-left:auto;
 
-    color:red;
+    color:#ffffff;
 
     font-size:32px;
 
     font-weight:700;
 
-    display:block;
+    letter-spacing:.5px;
 
-    visibility:visible;
+    display:block;
 
 }
