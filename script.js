@@ -52,7 +52,15 @@ console.log("Formulaire détecté");
         part2.value + "-" +
         part3.value;
 
+if(
+    part1.value.length !== 4 ||
+    part2.value.length !== 3 ||
+    part3.value.length !== 3
+){
+    result.innerHTML = "Code insuffisant. Vérifiez votre saisie.";
+    return;
 
+}
     const captcha = grecaptcha.getResponse();
 
 
@@ -75,10 +83,20 @@ console.log("Code envoyé :", code);
         }
     )
 
-    .then(function(){
+   .then(function(){
 
-        result.innerHTML = "Votre demande a été envoyée.";
-        grecaptcha.reset();
+    result.innerHTML = "Votre demande a été envoyée.";
+
+    // Effacer les champs du code
+    part1.value = "";
+    part2.value = "";
+    part3.value = "";
+
+    // Réinitialiser le captcha
+    grecaptcha.reset();
+
+    // Remettre le curseur sur le premier champ
+    part1.focus();
 
     })
 
