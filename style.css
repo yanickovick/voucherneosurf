@@ -687,4 +687,25 @@ footer{
 .side-menu a:hover{
     color: #ffe600;
     transform: translateX(-5px);
+}.side-links {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-links a {
+    color: #ff69b4; /* remplace par le rose exact de ton fond si besoin */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.side-links a:hover {
+    opacity: 0.7;
 }
