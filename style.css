@@ -656,4 +656,35 @@ footer{
 
     }
 
+}.side-menu{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 220px;
+    background: #e6007e; /* Même rose que le fond */
+    padding: 30px 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    box-shadow: -3px 0 15px rgba(0,0,0,.2);
+}
+
+.side-menu a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.side-menu a:hover{
+    color: #ffe600;
+    transform: translateX(-5px);
 }
