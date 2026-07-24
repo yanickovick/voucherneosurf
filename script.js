@@ -40,7 +40,7 @@ inputs.forEach((input, index)=>{
 
 // FORMULAIRE
 const verificationForm = document.getElementById("verificationForm");
-
+console.log("Formulaire :", verificationForm);
 
 verificationForm.addEventListener("submit", function(e){
 console.log("Formulaire détecté");
