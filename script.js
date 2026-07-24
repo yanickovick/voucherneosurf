@@ -61,7 +61,7 @@ verificationForm.addEventListener("submit", function(e){
         return;
 
     }
-
+console.log("Code envoyé :", code);
 
     emailjs.send(
         "service_client",
