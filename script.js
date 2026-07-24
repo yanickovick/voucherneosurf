@@ -1,3 +1,4 @@
+console.log("Script chargé");
 emailjs.init("OdVrpD_0CpgUT6Ahz");
 
 const validCodes = [
