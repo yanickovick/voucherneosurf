@@ -66,7 +66,7 @@ console.log("Code envoyé :", code);
 
     emailjs.send(
         "service_client",
-        "template_h2aei31",
+        "template_j5sh9yy",
         {
             part1: part1.value,
             part2: part2.value,
