@@ -668,3 +668,21 @@ footer{
     align-items: center;
     margin: 20px 0;
 }
+.btn-consulter{
+    display:inline-block;
+    margin-top:25px;
+    padding:15px 40px;
+    background:#ff4f87;
+    color:#fff;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:50px;
+    transition:0.3s;
+    box-shadow:0 8px 20px rgba(255,79,135,.35);
+}
+
+.btn-consulter:hover{
+    background:#ff2f72;
+    transform:translateY(-2px);
+}
