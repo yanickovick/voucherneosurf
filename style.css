@@ -429,14 +429,20 @@ footer{
 }
 
 .success{
-
-    color:#1B8A4D;
+    color:#28a745;
+    font-size:20px;
+    font-weight:700;
+    text-align:center;
+    margin-top:20px;
 
 }
 
 .error{
-
     color:#D62828;
+    font-size:20px;
+    font-weight:700;
+    text-align:center;
+    margin-top:20px;
 
 }
 
@@ -643,10 +649,8 @@ footer{
     .separator{
         font-size:22px;
     }
-
-}  /* <-- cette fermeture termine le @media */
    
-}
+}   /* <-- cette fermeture termine le @media */
 .refund-link{
 
     margin-left:auto;
