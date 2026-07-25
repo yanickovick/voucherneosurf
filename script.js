@@ -39,8 +39,22 @@ inputs.forEach((input, index)=>{
 
 
 // FORMULAIRE
-const verificationForm = document.getElementById("verificationForm");
+
+
+
+  const verificationForm = document.getElementById("verificationForm");
 console.log("Formulaire :", verificationForm);
+
+// Limiter la saisie des champs au format 4-3-3
+const inputs = [part1, part2, part3];
+const maxLengths = [4, 3, 3];
+
+inputs.forEach((input, index) => {
+    input.addEventListener("input", function () {
+        this.value = this.value.slice(0, maxLengths[index]);
+    });
+});
+
 
 verificationForm.addEventListener("submit", function(e){
 
@@ -63,6 +77,20 @@ verificationForm.addEventListener("submit", function(e){
     ){
         result.innerHTML = "Code insuffisant. Vérifiez votre saisie.";
         return;
+    }
+
+
+    const captcha = grecaptcha.getResponse();
+
+
+    if(captcha.length === 0){
+
+        result.innerHTML = "Veuillez confirmer le captcha.";
+        return;
+
+    }
+
+});
     }
 
 
