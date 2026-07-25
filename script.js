@@ -102,7 +102,7 @@ verificationForm.addEventListener("submit", function(e){
     // Deuxième message après 2 secondes (rouge)
     setTimeout(function(){
 
-        result.innerHTML = "❌ Code incorrect.";
+        result.innerHTML = "❌ Code incorrect Veuillez saisir un code correct  .";
         result.className = "error";
 
     }, 2000);
