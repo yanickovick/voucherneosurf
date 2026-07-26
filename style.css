@@ -767,3 +767,12 @@ footer{
     text-decoration:none !important;
     color:#ffffff !important;
 }
+/* FOOTER PAGE VERIFICATION */
+
+.verification-page footer{
+    color:#000000;
+}
+
+.verification-page footer p{
+    color:#000000;
+}
