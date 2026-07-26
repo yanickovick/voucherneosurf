@@ -73,46 +73,56 @@ body{
     right:-120px;
 }
 
+
 /* =====================================================
-   BARRE DU HAUT
+   TOPBAR
 ===================================================== */
-.topbar{
 
-    position:fixed;
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
 
-    top:0;
-    left:0;
+    width: 100%;
+    height: 110px;
 
-    width:100%;
+    background: #23294D;
 
-    height:110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    background:#23294D;
+    padding: 0 35px;
 
-    display:flex;
+    z-index: 1000;
 
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:0 35px;
-
-    z-index:1000;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.18);
-
+    box-shadow: 0 5px 20px rgba(0,0,0,.18);
 }
+
+
 /* =====================================================
-   LOGO
+   LOGO + NOM DU SITE
 ===================================================== */
 
-.brand{
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 
-    display:flex;
+    font-size: 24px;
+    font-weight: 700;
+    color: #E60087;
+}
 
-    align-items:center;
 
-    gap:18px;
+/* =====================================================
+   TEXTE DROITE
+===================================================== */
+
+.contact-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #E60087;
 
 }
 
