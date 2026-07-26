@@ -98,56 +98,32 @@ body{
 
     box-shadow: 0 5px 20px rgba(0,0,0,.18);
 }
-
-
-/* =====================================================
-   LOGO + NOM DU SITE
-===================================================== */
+/* LOGO + NOM DU SITE */
 
 .brand {
     display: flex;
     align-items: center;
     gap: 18px;
-
-    font-size: 24px;
-    font-weight: 700;
-    color: #E60087;
 }
 
 
-/* =====================================================
-   TEXTE DROITE
-===================================================== */
-
-.contact-text {
-    font-size: 24px;
-    font-weight: 700;
-    color: #E60087;
-
-}
-
-.logo-brand{
-
+.logo-brand {
     width:70px;
-
     height:70px;
-
     object-fit:contain;
-
 }
 
-.brand span{
 
+/* TEXTE IDENTIQUE À DROITE ET À GAUCHE */
+
+.brand span,
+.contact-text {
     color:#ffffff;
-
     font-size:32px;
-
     font-weight:700;
-
     letter-spacing:.5px;
-
+    white-space: nowrap;
 }
-
 /* =====================================================
    PAGE D'ACCUEIL
 ===================================================== */
