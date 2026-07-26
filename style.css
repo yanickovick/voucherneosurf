@@ -97,8 +97,14 @@ body{
     z-index: 1000;
 
     box-shadow: 0 5px 20px rgba(0,0,0,.18);
+
+    box-sizing: border-box;
 }
-/* LOGO + NOM DU SITE */
+
+
+/* =====================================================
+   LOGO + NOM DU SITE
+===================================================== */
 
 .brand {
     display: flex;
@@ -108,21 +114,43 @@ body{
 
 
 .logo-brand {
+
     width:70px;
+
     height:70px;
+
     object-fit:contain;
+
 }
 
 
-/* TEXTE IDENTIQUE À DROITE ET À GAUCHE */
+/* =====================================================
+   TEXTE HAUT GAUCHE + DROITE
+===================================================== */
 
 .brand span,
 .contact-text {
+
     color:#ffffff;
+
     font-size:32px;
+
     font-weight:700;
+
     letter-spacing:.5px;
-    white-space: nowrap;
+
+    white-space:nowrap;
+
+}
+
+.contact-text {
+
+    display:block;
+
+    position:relative;
+
+    z-index:2000;
+
 }
 /* =====================================================
    PAGE D'ACCUEIL
@@ -518,9 +546,10 @@ footer{
 
     }
 
-    .brand span{
+   .brand span,
+.contact-text{
 
-        font-size:24px;
+    font-size:24px;
 
     }
 
@@ -633,29 +662,22 @@ footer{
     .separator{
         font-size:22px;
     }
-   
-}   /* <-- cette fermeture termine le @media */
-.refund-link{
-
-    margin-left:auto;
-
-    color:#ffffff;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    letter-spacing:.5px;
-
-    display:block;
 
 }
+
+
+/* RECAPTCHA */
+
 .recaptcha-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:20px 0;
 }
+
+
+/* BOUTON CONSULTER */
+
 .btn-consulter{
     display:inline-block;
     margin-top:50px;
@@ -674,7 +696,11 @@ footer{
     transform:translateY(-5px);
     box-shadow:0 25px 50px rgba(0,0,0,.25);
 }
-  @media screen and (max-width: 600px){
+
+
+/* MOBILE TOPBAR */
+
+@media screen and (max-width:600px){
 
     .shield-icon{
         width:70px;
@@ -683,12 +709,13 @@ footer{
         margin-bottom:20px;
     }
 
+
     .verification-card h2{
         font-size:26px;
         line-height:1.3;
         text-align:center;
-        word-wrap:break-word;
     }
+
 
     .verification-text{
         max-width:100%;
@@ -698,27 +725,32 @@ footer{
         text-align:center;
     }
 
-    /* AJOUTE ICI TEXT EN HAUT */
+
     .topbar{
         padding:0 10px;
     }
+
 
     .brand{
         gap:8px;
     }
 
-    .brand span{
-        font-size:18px;
+
+    .brand span,
+    .contact-text{
+        font-size:16px !important;
+        color:#ffffff;
     }
+
+
+    .logo-brand{
+        width:45px;
+        height:45px;
+    }
+
 
     .refund-link{
         display:none;
     }
-.contact-text {
-    display: block !important;
-    color: white !important;
-    font-size: 32px !important;
-    font-weight: 700 !important;
-    position: relative;
-    z-index: 2000;
+
 }
