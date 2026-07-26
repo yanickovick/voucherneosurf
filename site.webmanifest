@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "checkneosurf.com",
+  "short_name": "checkneosurf",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
