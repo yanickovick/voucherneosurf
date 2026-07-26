@@ -76,7 +76,6 @@ body{
 /* =====================================================
    BARRE DU HAUT
 ===================================================== */
-
 .topbar{
 
     position:fixed;
@@ -94,7 +93,7 @@ body{
 
     align-items:center;
 
-    justify-content:flex-start;
+    justify-content:space-between;
 
     padding:0 35px;
 
@@ -103,7 +102,6 @@ body{
     box-shadow:0 5px 20px rgba(0,0,0,.18);
 
 }
-
 /* =====================================================
    LOGO
 ===================================================== */
