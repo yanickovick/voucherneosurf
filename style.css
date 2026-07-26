@@ -714,3 +714,11 @@ footer{
     .refund-link{
         display:none;
     }
+.contact-text {
+    display: block !important;
+    color: white !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    position: relative;
+    z-index: 2000;
+}
