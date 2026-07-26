@@ -156,10 +156,6 @@ body{
     cursor:pointer;
 
     color:#ffffff;
-
-}
-.contact-text{
-    text-decoration:none !important;
 }
 /* =====================================================
    PAGE D'ACCUEIL
@@ -755,10 +751,19 @@ footer{
         z-index:2000;
 
     }
+.refund-link{
+    display:none;
+}
+
+}
 
 
-    .refund-link{
-        display:none;
-    }
+/* SUPPRIME LE SOULIGNEMENT DU LIEN */
 
+.contact-text,
+.contact-text:visited,
+.contact-text:hover,
+.contact-text:active {
+    text-decoration:none !important;
+    color:#ffffff !important;
 }
