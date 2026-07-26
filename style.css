@@ -143,13 +143,19 @@ body{
 
 }
 
-.contact-text {
+..contact-text {
 
     display:block;
 
     position:relative;
 
     z-index:2000;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    color:#ffffff;
 
 }
 /* =====================================================
@@ -702,50 +708,49 @@ footer{
 
 @media screen and (max-width:600px){
 
-    .shield-icon{
-        width:70px;
-        height:70px;
-        font-size:35px;
-        margin-bottom:20px;
-    }
-
-
-    .verification-card h2{
-        font-size:26px;
-        line-height:1.3;
-        text-align:center;
-    }
-
-
-    .verification-text{
-        max-width:100%;
-        font-size:16px;
-        line-height:1.5;
-        padding:0 15px;
-        text-align:center;
-    }
-
-
     .topbar{
+        height:90px;
         padding:0 10px;
     }
 
 
     .brand{
         gap:8px;
-    }
-
-
-    .brand span,
-    .contact-text{
-        font-size:16px !important;
-        color:#ffffff;
+        display:flex;
+        align-items:center;
+        max-width:60%;
     }
 
 
     .logo-brand{
         width:45px;
         height:45px;
+    }
+
+
+    .brand span{
+        font-size:16px !important;
+        white-space:normal;
+        line-height:1.2;
+    }
+
+
+    .contact-text{
+
+        display:block !important;
+
+        color:#ffffff !important;
+
+        font-size:16px !important;
+
+        font-weight:700;
+
+        white-space:nowrap;
+
+        position:relative;
+
+        z-index:2000;
+
     }
 
 
