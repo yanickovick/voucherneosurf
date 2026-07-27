@@ -16,9 +16,9 @@ body{
 header{
     width:100%;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    padding:22px 70px;
+    padding:20px;
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(8px);
 }
@@ -26,67 +26,54 @@ header{
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+    text-align:center;
 }
 
 .logo img{
-    width:52px;
+    width:55px;
 }
 
 .logo span{
     color:white;
-    font-size:22px;
+    font-size:24px;
     font-weight:700;
 }
 
 .logo .pink{
-    color:#ffffff;
+    color:#fff;
     font-weight:800;
-}
-
-nav{
-    display:flex;
-    gap:40px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-size:16px;
-    transition:.3s;
-}
-
-nav a:hover{
-    opacity:.7;
 }
 
 /* ================= TITRE ================= */
 
 .hero{
     text-align:center;
-    padding:55px 20px 30px;
+    padding:45px 20px 30px;
 }
 
 .hero h1{
     color:white;
-    font-size:64px;
+    font-size:56px;
     font-weight:700;
+    line-height:1.2;
 }
 
 /* ================= CARTE ================= */
 
 .card{
 
-    width:90%;
-    max-width:1300px;
+    width:min(92%,1200px);
 
-    margin:auto;
+    margin:40px auto;
 
     background:white;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    padding:50px;
+    padding:45px;
 
     display:flex;
 
@@ -94,9 +81,9 @@ nav a:hover{
 
     align-items:flex-start;
 
-    gap:60px;
+    gap:50px;
 
-    box-shadow:0 25px 70px rgba(0,0,0,.18);
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
 
 }
 
@@ -110,17 +97,21 @@ nav a:hover{
 
     color:#148b2d;
 
-    font-size:28px;
+    font-size:30px;
 
-    margin-bottom:50px;
+    margin-bottom:40px;
 
 }
 
 .info p{
 
-    font-size:28px;
+    font-size:26px;
 
-    margin-bottom:35px;
+    margin-bottom:28px;
+
+    line-height:1.5;
+
+    word-break:break-word;
 
 }
 
@@ -136,13 +127,13 @@ nav a:hover{
 
 .right{
 
-    width:420px;
+    width:380px;
 
     display:flex;
 
     flex-direction:column;
 
-    gap:28px;
+    gap:22px;
 
 }
 
@@ -154,11 +145,11 @@ nav a:hover{
 
     border:none;
 
-    padding:24px;
+    padding:20px;
 
     border-radius:12px;
 
-    font-size:24px;
+    font-size:22px;
 
     cursor:pointer;
 
@@ -168,9 +159,9 @@ nav a:hover{
 
     align-items:center;
 
-    gap:18px;
-
     justify-content:center;
+
+    gap:15px;
 
     font-weight:600;
 
@@ -178,9 +169,9 @@ nav a:hover{
 
 .right button:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 
-    box-shadow:0 12px 25px rgba(0,0,0,.20);
+    box-shadow:0 10px 25px rgba(0,0,0,.20);
 
 }
 
@@ -192,38 +183,176 @@ footer{
 
     color:white;
 
-    margin:45px 0;
+    margin:35px 20px;
 
-    font-size:18px;
-
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1000px){
-
-.card{
-
-flex-direction:column;
+    font-size:16px;
 
 }
 
-.right{
+/* ================= TABLETTE ================= */
 
-width:100%;
+@media (max-width:992px){
+
+    .card{
+
+        flex-direction:column;
+
+        padding:35px;
+
+        gap:35px;
+
+    }
+
+    .right{
+
+        width:100%;
+
+    }
+
+    .right button{
+
+        width:100%;
+
+    }
+
+    .hero h1{
+
+        font-size:42px;
+
+    }
+
+    .info p{
+
+        font-size:22px;
+
+    }
 
 }
 
-.hero h1{
+/* ================= TELEPHONE ================= */
 
-font-size:42px;
+@media (max-width:768px){
+
+    header{
+
+        padding:15px;
+
+    }
+
+    .logo img{
+
+        width:45px;
+
+    }
+
+    .logo span{
+
+        font-size:18px;
+
+    }
+
+    .hero{
+
+        padding:30px 15px 20px;
+
+    }
+
+    .hero h1{
+
+        font-size:34px;
+
+    }
+
+    .card{
+
+        width:95%;
+
+        padding:25px 20px;
+
+        border-radius:18px;
+
+    }
+
+    .left h2{
+
+        font-size:24px;
+
+        text-align:center;
+
+    }
+
+    .info p{
+
+        font-size:18px;
+
+        margin-bottom:18px;
+
+    }
+
+    .right{
+
+        width:100%;
+
+    }
+
+    .right button{
+
+        width:100%;
+
+        padding:16px;
+
+        font-size:18px;
+
+    }
+
+    footer{
+
+        font-size:14px;
+
+    }
 
 }
 
-.info p{
+/* ================= PETITS TELEPHONES ================= */
 
-font-size:20px;
+@media (max-width:480px){
 
-}
+    .hero h1{
+
+        font-size:28px;
+
+    }
+
+    .logo span{
+
+        font-size:16px;
+
+    }
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    .left h2{
+
+        font-size:22px;
+
+    }
+
+    .info p{
+
+        font-size:16px;
+
+    }
+
+    .right button{
+
+        font-size:17px;
+
+        padding:15px;
+
+    }
 
 }
