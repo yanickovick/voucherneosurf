@@ -1,1 +1,230 @@
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff007f,#e60087,#d1007b);
+    min-height:100vh;
+    color:#222;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 70px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(8px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:52px;
+}
+
+.logo span{
+    color:white;
+    font-size:22px;
+    font-weight:700;
+}
+
+.logo .pink{
+    color:#ffffff;
+    font-weight:800;
+}
+
+nav{
+    display:flex;
+    gap:40px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:.3s;
+}
+
+nav a:hover{
+    opacity:.7;
+}
+
+/* ================= TITRE ================= */
+
+.hero{
+    text-align:center;
+    padding:55px 20px 30px;
+}
+
+.hero h1{
+    color:white;
+    font-size:64px;
+    font-weight:700;
+}
+
+/* ================= CARTE ================= */
+
+.card{
+
+    width:90%;
+    max-width:1300px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:50px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:60px;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.18);
+
+}
+
+/* ================= GAUCHE ================= */
+
+.left{
+    flex:1;
+}
+
+.left h2{
+
+    color:#148b2d;
+
+    font-size:28px;
+
+    margin-bottom:50px;
+
+}
+
+.info p{
+
+    font-size:28px;
+
+    margin-bottom:35px;
+
+}
+
+.green{
+
+    color:#148b2d;
+
+    font-weight:700;
+
+}
+
+/* ================= DROITE ================= */
+
+.right{
+
+    width:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+.right button{
+
+    background:linear-gradient(135deg,#8c2be2,#6f2cd8);
+
+    color:white;
+
+    border:none;
+
+    padding:24px;
+
+    border-radius:12px;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    justify-content:center;
+
+    font-weight:600;
+
+}
+
+.right button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.20);
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    text-align:center;
+
+    color:white;
+
+    margin:45px 0;
+
+    font-size:18px;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+.card{
+
+flex-direction:column;
+
+}
+
+.right{
+
+width:100%;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.info p{
+
+font-size:20px;
+
+}
+
+}
