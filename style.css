@@ -776,3 +776,31 @@ footer{
 .verification-page footer p{
     color:#000000;
 }
+/* ===========================
+   FAQ
+=========================== */
+
+.faq{
+    max-width:900px;
+    margin:70px auto;
+    padding:0 20px;
+}
+
+.faq h2{
+    text-align:center;
+    font-size:2rem;
+    color:#6b2dbd;
+    margin-bottom:30px;
+}
+
+.faq h3{
+    margin-top:25px;
+    color:#333;
+    font-size:1.2rem;
+}
+
+.faq p{
+    margin-top:8px;
+    line-height:1.8;
+    color:#555;
+}
