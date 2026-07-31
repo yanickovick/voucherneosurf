@@ -38,9 +38,8 @@ body{
 ===================================================== */
 
 .verification-page{
-    background:#E60087;
+    background:#eef2f5;
 }
-
 .verification-page .background-shape{
     display:none;
 }
@@ -253,23 +252,37 @@ footer{
    PAGE DE VÉRIFICATION
 ===================================================== */
 
-.verification-card{
 
-    width:min(760px,92%);
-
+   .verification-card{
+    width:470px;
+    max-width:95%;
+    margin:50px auto;
     background:#ffffff;
-
-    margin:70px auto;
-
-    padding:60px;
-
-    border-radius:30px;
-
-    text-align:center;
-
-    box-shadow:0 30px 70px rgba(0,0,0,.25);
-
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
+
+.verification-header{
+    padding:32px 25px;
+    border-bottom:1px solid #e5e5e5;
+    background:#ffffff;
+}
+
+.verification-header h2{
+    margin:0;
+    text-align:center;
+    font-size:30px;
+    font-weight:500;
+    color:#22396f;
+    line-height:1.3;
+}
+
+.verification-body{
+    padding:40px 25px;
+}
+/* CONTENU DE LA CARTE */
+
 
 /* =====================================================
    ICÔNE
@@ -341,45 +354,73 @@ footer{
 
     align-items:center;
 
-    gap:15px;
+    gap:0;
 
-    margin:40px 0;
+    width:100%;
+
+    margin:20px auto;
 
 }
+#verificationForm{
 
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+.recaptcha-container{
+    margin:15px 0;
+}
+
+#verifyBtn{
+    margin-top:8px;
+}
 .code-input{
+    width:75px;
+    height:52px;
 
-    width:130px;
+    border:1px solid #bdbdbd;
 
-    height:75px;
-
-    border:2px solid #E5C9F4;
-
-    border-radius:18px;
-
-    background:#ffffff;
+    border-right:none;
 
     text-align:center;
 
-    font-size:32px;
+    font-size:22px;
 
-    font-weight:700;
+    font-weight:500;
 
-    text-transform:uppercase;
+    color:#333;
 
     outline:none;
 
-    transition:.30s;
+    background:#fff;
+}
+
+.code-input:first-child{
+
+    border-radius:4px 0 0 4px;
+
+}
+
+.code-input:last-child{
+
+    border-right:1px solid #d5d5d5;
+
+    border-radius:0 4px 4px 0;
 
 }
 
 .code-input:focus{
 
-    border-color:#8E44FF;
+    border:1px solid #4a90ff;
 
-    box-shadow:0 0 20px rgba(142,68,255,.25);
+    z-index:10;
 
 }
+
+
 
 .separator{
 
@@ -394,57 +435,45 @@ footer{
 /* =====================================================
    BOUTON
 ===================================================== */
-
 .verification-card button{
 
-    width:100%;
+    width:150px;
 
-    padding:22px;
-
-    margin-top:15px;
+    height:52px;
 
     border:none;
 
-    border-radius:50px;
+    border-radius:4px;
 
-    background:linear-gradient(135deg,#FF2C97,#8E44FF);
+    background:#ec1c7d;
 
-    color:#ffffff;
+    color:#fff;
 
-    font-size:24px;
+    font-size:18px;
 
     font-weight:700;
 
     cursor:pointer;
 
-    transition:.30s;
+    margin-top:18px;
+
+    transition:.25s;
 
 }
 
 .verification-card button:hover{
 
-    transform:translateY(-4px);
-
-    box-shadow:0 15px 30px rgba(0,0,0,.18);
+    background:#d81870;
 
 }
-
 /* =====================================================
    MESSAGE
 ===================================================== */
 
 #result{
-
-    margin-top:25px;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    min-height:40px;
-
+    min-height:0;
+    margin-top:10px;
 }
-
 .success{
     color:#28a745;
     font-size:20px;
@@ -673,13 +702,15 @@ footer{
 
 /* RECAPTCHA */
 
-.recaptcha-container {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:20px 0;
-}
+.recaptcha-container{
 
+    display:flex;
+
+    justify-content:center;
+
+    margin:18px 0;
+
+}
 
 /* BOUTON CONSULTER */
 
@@ -769,38 +800,48 @@ footer{
 }
 /* FOOTER PAGE VERIFICATION */
 
-.verification-page footer{
-    color:#000000;
-}
+/* ==========================================
+   FOOTER PAGE VERIFICATION
+========================================== */
 
-.verification-page footer p{
-    color:#000000;
-}
-/* ===========================
-   FAQ
-=========================== */
+.verification-footer{
 
-.faq{
-    max-width:900px;
-    margin:70px auto;
-    padding:0 20px;
-}
+    margin-top:70px;
 
-.faq h2{
+    padding:30px 20px;
+
+    background:#eef2f5;
+
+    border-top:1px solid #d8d8d8;
+
     text-align:center;
-    font-size:2rem;
-    color:#6b2dbd;
-    margin-bottom:30px;
+
 }
 
-.faq h3{
-    margin-top:25px;
-    color:#333;
-    font-size:1.2rem;
+.footer-text{
+
+    color:#e60087;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
 }
 
-.faq p{
-    margin-top:8px;
-    line-height:1.8;
+.footer-text span{
+
+    color:#999;
+
+    margin:0 8px;
+
+}
+
+.verification-footer p{
+
+    margin:0;
+
     color:#555;
+
+    font-size:14px;
+
 }
