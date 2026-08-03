@@ -1,7 +1,3 @@
-// ================================
-// Résultat - Mon Code Promo
-// ================================
-
 // Génère un numéro de série aléatoire
 function genererNumeroSerie() {
 
@@ -12,9 +8,7 @@ function genererNumeroSerie() {
     return `${prefixe}-${annee}-${numero}`;
 }
 
-// ================================
 // Affichage du numéro de série
-// ================================
 
 const serial = document.getElementById("serial");
 
@@ -34,9 +28,6 @@ if (serial) {
 
 }
 
-// ================================
-// Bouton Historique
-// ================================
 
 const historique = document.querySelectorAll("button")[0];
 
@@ -46,9 +37,6 @@ historique.addEventListener("click", function () {
 
 });
 
-// ================================
-// Bouton Remboursement
-// ================================
 
 const remboursement = document.querySelectorAll("button")[1];
 
@@ -58,9 +46,6 @@ remboursement.addEventListener("click", function () {
 
 });
 
-// ================================
-// Bouton Déconnexion
-// ================================
 
 const deconnexion = document.querySelectorAll("button")[2];
 
