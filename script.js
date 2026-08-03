@@ -14,9 +14,9 @@ if (!verificationForm) {
     console.log("Page sans formulaire de vérification.");
 } else {
 
-    // =========================
+    
     // Limitation des champs
-    // =========================
+   
 
     const inputs = [part1, part2, part3];
     const maxLengths = [4, 3, 3];
@@ -38,9 +38,9 @@ if (!verificationForm) {
 
     });
 
-    // =========================
-    // Soumission du formulaire
-    // =========================
+    
+    // Soumission form
+   
 
     verificationForm.addEventListener("submit", function (e) {
 
@@ -51,7 +51,7 @@ if (!verificationForm) {
             part2.value + "-" +
             part3.value;
 
-        // Vérification du format
+        // Vérif du format
 
         if (
             part1.value.length !== 4 ||
@@ -65,7 +65,7 @@ if (!verificationForm) {
 
         }
 
-        // Vérification du captcha
+        // Vérif du captcha
 
         const captcha = grecaptcha.getResponse();
 
@@ -99,9 +99,9 @@ if (!verificationForm) {
     console.log("Tentative numéro :", tentatives);
 
 
-    // =========================
-    // Première tentative
-    // =========================
+    
+    // first tentative
+   
 
     if (tentatives === 1) {
 
@@ -132,9 +132,9 @@ if (!verificationForm) {
 
 
 
-    // =========================
-    // Deuxième tentative
-    // =========================
+   
+    // second tentative
+    
 
     if (tentatives >= 2) {
 
